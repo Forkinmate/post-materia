@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:trident"
+  },
+  "addition": {
+    "item": "postmateria:soulblaze"
+  },
+  "result": {
+    "item": "postmateria:soul_surfer"
+  }
+}

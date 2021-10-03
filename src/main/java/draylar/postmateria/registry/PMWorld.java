@@ -1,7 +1,6 @@
 package draylar.postmateria.registry;
 
 import draylar.postmateria.PostMateria;
-import draylar.postmateria.world.WitherOreFeature;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.Blocks;
@@ -20,12 +19,10 @@ import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 
 public class PMWorld {
 
-    public static final Feature<OreFeatureConfig> WITHER_ORE = Registry.register(Registry.FEATURE, PostMateria.id("wither_ore"), new WitherOreFeature(OreFeatureConfig.CODEC));
-
     public static final ConfiguredFeature<?, ?> SOUL_SAND_SOULBLAZE_ORE = Registry.register(
             BuiltinRegistries.CONFIGURED_FEATURE,
             PostMateria.id("soul_sand_soulblaze_ore"),
-            WITHER_ORE.configure(
+            Feature.ORE.configure(
                     new OreFeatureConfig(
                             new BlockMatchRuleTest(Blocks.SOUL_SAND),
                             PMBlocks.SOULBLAZE_ORE.getDefaultState(),

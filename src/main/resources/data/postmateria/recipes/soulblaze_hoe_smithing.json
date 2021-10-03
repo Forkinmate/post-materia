@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_hoe"
+  },
+  "addition": {
+    "item": "postmateria:soulblaze"
+  },
+  "result": {
+    "item": "postmateria:soulblaze_hoe"
+  }
+}

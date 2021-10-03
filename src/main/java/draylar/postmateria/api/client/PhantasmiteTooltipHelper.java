@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class PhantasmiteTooltipHelper {
 
     /**
-     * Returns {@code true} if the current client has a full set of Soulblaze Armor equipped.
+     * Returns {@code true} if the current client has a full set of Phantasmite Armor equipped.
      */
     public static boolean hasFullSet() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;

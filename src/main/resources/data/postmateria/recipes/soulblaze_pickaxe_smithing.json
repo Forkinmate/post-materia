@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "addition": {
+    "item": "postmateria:soulblaze"
+  },
+  "result": {
+    "item": "postmateria:soulblaze_pickaxe"
+  }
+}

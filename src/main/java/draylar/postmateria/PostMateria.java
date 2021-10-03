@@ -1,5 +1,7 @@
 package draylar.postmateria;
 
+import dev.hephaestus.fiblib.api.BlockFib;
+import dev.hephaestus.fiblib.api.BlockFibRegistry;
 import draylar.postmateria.api.data.WorldData;
 import draylar.postmateria.api.data.WorldDataKey;
 import draylar.postmateria.api.data.WorldDataRegistry;
@@ -13,19 +15,15 @@ import draylar.postmateria.registry.PMEntities;
 import draylar.postmateria.registry.PMItems;
 import draylar.postmateria.registry.PMWorld;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerChunkEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class PostMateria implements ModInitializer {
@@ -42,35 +40,42 @@ public class PostMateria implements ModInitializer {
         PMWorld.initialize();
 
         // Debugging commands
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+        if(FabricLoader.getInstance().isDevelopmentEnvironment()) {
             GenerateCommand.initialize();
             WorldDataTestCommand.initialize();
         }
 
-        // Do not call the inside callback while the server is starting up (it freezes)!
-        // TODO: I think we can/should remove this
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+        // Setup Fibs for Soulblaze Ore
+        BlockFib fib = BlockFib.builder(PMBlocks.SOULBLAZE_ORE, Blocks.SOUL_SAND)
+                .withCondition(player -> player.getServer() != null && !getGlobalData(player.getServer(), WITHER_SLAIN_DATA).isWitherSlain())
+                .build();
 
-            // When a chunk is loaded, attempt to regenerate features.
-            ServerChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
+        BlockFibRegistry.register(fib);
 
-                // If the wither has been slain, ensure Soulblaze Ore has generated.
-                if (getGlobalData(world.getServer(), WITHER_SLAIN_DATA).isWitherSlain()) {
-                    if (!getData(world, PREVIOUS_GENERATION_DATA).hasSoulblaze(chunk)) {
-                        queuedSoulblazeRetrogen.put(world, chunk);
-                    }
-                }
-            });
-        });
-
-        // Handle queue to avoid freezing the server thread with World#getChunk
-        ServerTickEvents.START_SERVER_TICK.register(server -> {
-            queuedSoulblazeRetrogen.forEach((world, chunk) -> {
-                PMWorld.SOUL_SAND_SOULBLAZE_ORE.generate(world, world.getChunkManager().getChunkGenerator(), world.random, chunk.getPos().getBlockPos(0, 0, 0));
-            });
-
-            queuedSoulblazeRetrogen.clear();
-        });
+//        // Do not call the inside callback while the server is starting up (it freezes)!
+//        // TODO: I think we can/should remove this
+//        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+//
+//            // When a chunk is loaded, attempt to regenerate features.
+//            ServerChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
+//
+//                // If the wither has been slain, ensure Soulblaze Ore has generated.
+//                if (getGlobalData(world.getServer(), WITHER_SLAIN_DATA).isWitherSlain()) {
+//                    if (!getData(world, PREVIOUS_GENERATION_DATA).hasSoulblaze(chunk)) {
+//                        queuedSoulblazeRetrogen.put(world, chunk);
+//                    }
+//                }
+//            });
+//        });
+//
+//        // Handle queue to avoid freezing the server thread with World#getChunk
+//        ServerTickEvents.START_SERVER_TICK.register(server -> {
+//            queuedSoulblazeRetrogen.forEach((world, chunk) -> {
+//                PMWorld.SOUL_SAND_SOULBLAZE_ORE.generate(world, world.getChunkManager().getChunkGenerator(), world.random, chunk.getPos().getBlockPos(0, 0, 0));
+//            });
+//
+//            queuedSoulblazeRetrogen.clear();
+//        });
     }
 
     public static Identifier id(String name) {

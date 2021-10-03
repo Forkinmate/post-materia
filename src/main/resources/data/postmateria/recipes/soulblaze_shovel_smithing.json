@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "addition": {
+    "item": "postmateria:soulblaze"
+  },
+  "result": {
+    "item": "postmateria:soulblaze_shovel"
+  }
+}
