@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "post-materia",
+  "version": "${version}",
+  "name": "Post Materia",
+  "description": "Stylized materials post-Netherite. ",
+  "authors": [
+    "Draylar"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/post-materia/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "draylar.postmateria.PostMateriaClient"
+    ],
+    "main": [
+      "draylar.postmateria.PostMateria"
+    ]
+  },
+  "mixins": [
+    "post-materia.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.7",
+    "fabric": "*",
+    "minecraft": "1.17.1"
+  }
+}

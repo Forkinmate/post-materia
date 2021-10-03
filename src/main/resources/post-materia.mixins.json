@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "draylar.postmateria.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "DamageTrackerAccessor",
+    "EntityDispatcherFlameMixin",
+    "EntitySoulBlazeMixin",
+    "HealMixin",
+    "PlayerEntityDamageMixin",
+    "ServerPersistentStateMixin",
+    "StatusEffectAccessor",
+    "WitherDeathMixin",
+    "WorldChunkMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

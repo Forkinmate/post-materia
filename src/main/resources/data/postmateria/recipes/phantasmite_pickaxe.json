@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "X": {
+      "item": "postmateria:phantasmite"
+    }
+  },
+  "result": {
+    "item": "postmateria:phantasmite_pickaxe"
+  }
+}
