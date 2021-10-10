@@ -15,30 +15,29 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.Identifier;
 
 public class PMBlocks {
 
     // Phantasmite ---------------------------------------------------------------------------------------------------
     public static final Block PHANTASMITE_ORE = register("phantasmite_ore", new OreBlock(
-            FabricBlockSettings.of(Material.STONE)
-                    .requiresTool()
-                    .strength(3, 3)
-                    .breakByTool(FabricToolTags.PICKAXES, MiningLevels.NETHERITE)
-                    .sounds(BlockSoundGroup.DEEPSLATE)),
+                    FabricBlockSettings.of(Material.STONE)
+                            .requiresTool()
+                            .strength(3, 3)
+                            .breakByTool(FabricToolTags.PICKAXES, MiningLevels.NETHERITE)
+                            .sounds(BlockSoundGroup.DEEPSLATE)),
             new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
 
     public static final Block PHANTASMITE_BLOCK = register("phantasmite_block", new Block(
             FabricBlockSettings.of(Material.METAL)
                     .requiresTool()
-                    .strength(3, 3)),
-            new Item.Settings().rarity(Rarity.EPIC));
+                    .strength(3, 3)
+    ), new Item.Settings().rarity(Rarity.EPIC));
 
     public static final Block PHANTASMITE_GEYSER = register("phantasmite_geyser", new PhantasmaGeyserBlock(
             FabricBlockSettings.of(Material.STONE)
-                .requiresTool()
-                .strength(3, 3)
-                .sounds(BlockSoundGroup.DEEPSLATE)
+                    .requiresTool()
+                    .strength(3, 3)
+                    .sounds(BlockSoundGroup.DEEPSLATE)
     ), new Item.Settings().rarity(Rarity.EPIC));
 
     public static final Block PHANTASMA_SPAWNER = register("phantasma_spawner", new PhantasmaSpawnerBlock(
@@ -46,6 +45,7 @@ public class PMBlocks {
                     .requiresTool()
                     .strength(3, 3)
                     .sounds(BlockSoundGroup.DEEPSLATE)
+                    .nonOpaque()
     ), new Item.Settings().rarity(Rarity.EPIC));
 
     // Soulblaze ---------------------------------------------------------------------------------------------------

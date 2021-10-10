@@ -19,11 +19,11 @@ public class PhantasmaGeyserBlock extends Block {
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if(world.random.nextInt(2) == 0) {
             for (int i = 0; i < 20; i++) {
-                world.addParticle(ParticleTypes.DRAGON_BREATH, pos.getX(), pos.getY() + i / 10f, pos.getZ(), 0.05 - world.random.nextDouble() * 0.1, 0.25 + world.random.nextDouble(), 0.05 - world.random.nextDouble() * 0.1);
+                world.addParticle(ParticleTypes.DRAGON_BREATH, pos.getX() + 0.5, pos.getY() + i / 10f, pos.getZ() + 0.5, 0.05 - world.random.nextDouble() * 0.1, 0.25 + world.random.nextDouble(), 0.05 - world.random.nextDouble() * 0.1);
             }
         } else {
             for (int i = 0; i < 20; i++) {
-                world.addParticle(ParticleTypes.FLAME, pos.getX(), pos.getY() + i / 10f, pos.getZ(), 0.05 - world.random.nextDouble() * 0.1, 0.25 + world.random.nextDouble(), 0.05 - world.random.nextDouble() * 0.1);
+                world.addParticle(ParticleTypes.FLAME, pos.getX() + 0.5, pos.getY() + i / 10f, pos.getZ() + 0.5, 0.05 - world.random.nextDouble() * 0.1, 0.25 + world.random.nextDouble(), 0.05 - world.random.nextDouble() * 0.1);
             }
         }
     }
