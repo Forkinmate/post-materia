@@ -1,10 +1,7 @@
 package draylar.postmateria.registry;
 
 import draylar.postmateria.PostMateria;
-import draylar.postmateria.item.PhantasmiteArmorItem;
-import draylar.postmateria.item.PhantasmiteSwordItem;
-import draylar.postmateria.item.SoulblazePickaxeItem;
-import draylar.postmateria.item.SoulblazeSwordItem;
+import draylar.postmateria.item.*;
 import draylar.postmateria.material.MateriaToolMaterials;
 import draylar.postmateria.material.PhantasmiteArmorMaterial;
 import draylar.postmateria.material.PhantasmiteToolMaterial;
@@ -42,7 +39,7 @@ public class PMItems {
     public static final Item SOULBLAZE_CHESTPLATE = register("soulblaze_chestplate", new ArmorItem(SoulblazeArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().rarity(Rarity.RARE).group(ItemGroup.COMBAT)));
     public static final Item SOULBLAZE_LEGGINGS = register("soulblaze_leggings", new ArmorItem(SoulblazeArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().rarity(Rarity.RARE).group(ItemGroup.COMBAT)));
     public static final Item SOULBLAZE_BOOTS = register("soulblaze_boots", new ArmorItem(SoulblazeArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().rarity(Rarity.RARE).group(ItemGroup.COMBAT)));
-    public static final Item SOUL_SURFER = register("soul_surfer", new Item(new Item.Settings().rarity(Rarity.RARE).group(ItemGroup.COMBAT)));
+    public static final Item SOUL_SURFER = register("soul_surfer", new SoulSurferItem(new Item.Settings().rarity(Rarity.RARE).group(ItemGroup.COMBAT).maxDamage(2000)));
 
 
     private static <T extends Item> T register(String name, T item) {

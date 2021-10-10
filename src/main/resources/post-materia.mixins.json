@@ -10,6 +10,7 @@
     "HealMixin",
     "PlayerEntityDamageMixin",
     "ServerPersistentStateMixin",
+    "ServerWorldAccessor",
     "StatusEffectAccessor",
     "WitherDeathMixin",
     "WorldChunkMixin"
