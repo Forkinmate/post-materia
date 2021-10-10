@@ -1,9 +1,9 @@
 package draylar.postmateria.mixin;
 
+import draylar.postmateria.PostMateriaClient;
 import draylar.postmateria.api.SoulBlazeHelper;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
@@ -35,8 +35,8 @@ public class EntityDispatcherFlameMixin {
 
     @Unique
     private void renderSoulFire(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Entity entity) {
-        Sprite baseSprite = ModelLoader.FIRE_0.getSprite();
-        Sprite overSprite = ModelLoader.FIRE_1.getSprite();
+        Sprite baseSprite = PostMateriaClient.SOUL_FIRE_0.getSprite();
+        Sprite overSprite = PostMateriaClient.SOUL_FIRE_1.getSprite();
         matrices.push();
         float fireScale = entity.getWidth() * 1.4F;
         matrices.scale(fireScale, fireScale, fireScale);
@@ -78,7 +78,7 @@ public class EntityDispatcherFlameMixin {
     @Unique
     private static void drawSoulFlameTexture(MatrixStack.Entry entry, VertexConsumer vertices, float x, float y, float z, float u, float v) {
         vertices.vertex(entry.getModel(), x, y, z)
-                .color(25, 45, 200, 25) // Easy way to get a soul flame texture!
+                .color(255, 255, 255, 255) // Easy way to get a soul flame texture!
                 .texture(u, v)
                 .overlay(0, 10)
                 .light(LightmapTextureManager.MAX_BLOCK_LIGHT_COORDINATE)

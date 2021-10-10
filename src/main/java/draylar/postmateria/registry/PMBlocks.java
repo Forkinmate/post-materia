@@ -9,6 +9,7 @@ import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.OreBlock;
+import net.minecraft.block.SoulSandBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -49,7 +50,7 @@ public class PMBlocks {
     ), new Item.Settings().rarity(Rarity.EPIC));
 
     // Soulblaze ---------------------------------------------------------------------------------------------------
-    public static final Block SOULBLAZE_ORE = register("soulblaze_ore", new OreBlock(
+    public static final Block SOULBLAZE_ORE = register("soulblaze_ore", new SoulSandBlock(
                     FabricBlockSettings.of(Material.AGGREGATE)
                             .velocityMultiplier(0.4f)
                             .requiresTool()
