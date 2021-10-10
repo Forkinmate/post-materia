@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "post-materia",
+  "id": "postmateria",
   "version": "${version}",
   "name": "Post Materia",
   "description": "Stylized materials post-Netherite. ",

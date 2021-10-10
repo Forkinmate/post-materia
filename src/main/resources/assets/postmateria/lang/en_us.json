@@ -25,6 +25,9 @@
   "item.postmateria.soulblaze_boots": "Soulblaze Boots",
   "item.postmateria.soul_surfer": "Soul Surfer",
 
+  "block.postmateria.phantasmite_block": "Phantasmite Block",
+  "block.postmateria.phantasmite_geyser": "Phantasmite Geyser",
+
   "postmateria.translation.soulblaze": "§bSoulblaze: §7you inflict §bSoul Fire §7on hit.",
   "postmateria.translation.phantasmite": "§Phantasmal Wrath: §7you recover §b10% §7of dealt damage.",
   "postmateria.translation.phantasmite_armor": "§7Provides §b10% §7healing buff.",
