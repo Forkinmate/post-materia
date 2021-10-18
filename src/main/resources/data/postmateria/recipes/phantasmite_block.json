@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "postmateria:phantasmite"
+    }
+  },
+  "result": {
+    "item": "postmateria:phantasmite_block"
+  }
+}
