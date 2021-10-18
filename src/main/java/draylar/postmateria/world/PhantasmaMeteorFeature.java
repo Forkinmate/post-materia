@@ -83,5 +83,6 @@ public class PhantasmaMeteorFeature extends Feature<DefaultFeatureConfig> {
         }
 
         // The center of the meteor houses a custom mob spawner.
+        // TODO: ^
     }
 }

@@ -14,9 +14,8 @@ public class WorldWitherData implements WorldData {
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound root) {
+    public void writeNbt(NbtCompound root) {
         root.putBoolean("WitherSlain", witherSlain);
-        return root;
     }
 
     @Override

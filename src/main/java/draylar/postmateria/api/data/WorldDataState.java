@@ -57,7 +57,13 @@ public class WorldDataState extends PersistentState {
         data.forEach((key, data) -> {
             NbtCompound inner = new NbtCompound();
             inner.putString("Type", key.id().toString());
-            inner.put("Data", data.writeNbt(new NbtCompound()));
+
+            // Write data to a new tag.
+            NbtCompound dataTag = new NbtCompound();
+            data.writeNbt(dataTag);
+
+            // Write under the Data key.
+            inner.put("Data", dataTag);
             allData.add(inner);
         });
 

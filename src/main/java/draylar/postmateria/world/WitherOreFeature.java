@@ -9,7 +9,9 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 
 /**
  * This class represents an {@link OreFeature} which only spawns after the Wither has been slain.
+ * @deprecated This is an old feature which is not being used in favor of FibLib, but I am keeping it for future reference.
  */
+@Deprecated
 public class WitherOreFeature extends OreFeature {
 
     public WitherOreFeature(Codec<OreFeatureConfig> codec) {

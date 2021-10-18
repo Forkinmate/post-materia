@@ -23,11 +23,10 @@ public class PreviousGenerationData implements WorldData {
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound root) {
+    public void writeNbt(NbtCompound root) {
         NbtList soulblazeChunks = new NbtList();
         soulblazeGeneratedChunks.forEach(chunkPos -> soulblazeChunks.add(NbtLong.of(chunkPos.toLong())));
         root.put("SoulblazeChunks", soulblazeChunks);
-        return root;
     }
 
     @Override
