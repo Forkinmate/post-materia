@@ -20,7 +20,7 @@ public class PMItems {
     public static final Item PHANTASMITE_SHOVEL = register("phantasmite_shovel", new ShovelItem(MateriaToolMaterials.PHANTASMITE, 0, -2.0f, new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)));
     public static final Item PHANTASMITE_AXE = register("phantasmite_axe", new AxeItem(MateriaToolMaterials.PHANTASMITE, 5, -2.6f, new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)) {});
     public static final Item PHANTASMITE_HOE = register("phantasmite_hoe", new HoeItem(MateriaToolMaterials.PHANTASMITE, -2, -2.0f, new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)) {});
-    public static final Item THUNDERING_PHANTASM = register("thundering_phantasm", new Item(new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)));
+    public static final Item THUNDERING_PHANTASM = register("thundering_phantasm", new ThunderingPhantasmItem(new Item.Settings().rarity(Rarity.EPIC).maxDamage(500).group(ItemGroup.COMBAT)));
     public static final Item PHANTASMITE_HELMET = register("phantasmite_helmet", new PhantasmiteArmorItem(PhantasmiteArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)));
     public static final Item PHANTASMITE_CHESTPLATE = register("phantasmite_chestplate", new PhantasmiteArmorItem(PhantasmiteArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)));
     public static final Item PHANTASMITE_LEGGINGS = register("phantasmite_leggings", new PhantasmiteArmorItem(PhantasmiteArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.COMBAT)));
