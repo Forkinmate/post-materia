@@ -54,7 +54,6 @@ public abstract class ServerPersistentStateMixin extends World implements WorldD
         // The Overlord should always exist, so we use it to store 'global' (server-wide) data.
         // Register global data suppliers now.
         if (worldKey == World.OVERWORLD) {
-            System.out.println("hi");
             WorldDataRegistry.getGlobalSuppliers().forEach((key, supplier) -> {
 
                 // Only register the given key if it does not exist yet.

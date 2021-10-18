@@ -1,4 +1,4 @@
-package draylar.postmateria.mixin;
+package draylar.postmateria.mixin.soulblaze;
 
 import draylar.postmateria.material.SoulblazeArmorMaterial;
 import net.minecraft.enchantment.Enchantment;
@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMxin {
 
+    // Force Soulblaze boots to always have Soul Speed.
     @Inject(method = "getLevel", at = @At("HEAD"), cancellable = true)
     private static void injectSoulblazeSoulspeed(Enchantment enchantment, ItemStack stack, CallbackInfoReturnable<Integer> cir) {
         Item item = stack.getItem();
