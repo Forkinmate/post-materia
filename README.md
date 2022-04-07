@@ -4,6 +4,10 @@ Post Materia is a Minecraft mod which introduces several new thematic resources 
 
 ![](resources/soulblaze.png)
 
+Soulblaze Ore can be found in the Soulsand Valley after the Wither is defeated.
+
+Phantasmite Ore can be found in rare meteors scattered across the Overworld, but will require Netherite to mine.
+
 ### License
 
 MIT
