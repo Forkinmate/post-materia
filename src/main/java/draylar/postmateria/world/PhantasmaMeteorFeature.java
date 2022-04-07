@@ -6,10 +6,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.noise.PerlinNoiseSampler;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.SimpleRandom;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.minecraft.world.gen.random.SimpleRandom;
 
 import java.util.Random;
 
@@ -35,7 +35,7 @@ public class PhantasmaMeteorFeature extends Feature<DefaultFeatureConfig> {
 
             // For each position that is within the 'radius' of the meteor, place a block.
             double eval = NOISE.sample(potentialPos.getX(), potentialPos.getY(), potentialPos.getZ());
-            if (potentialPos.getSquaredDistance(pos) <= 50 + eval * 10) {
+            if(potentialPos.getSquaredDistance(pos) <= 50 + eval * 10) {
                 if(eval <= -0.3) {
                     world.setBlockState(potentialPos, PMBlocks.PHANTASMITE_ORE.getDefaultState());
                 } else {
@@ -55,14 +55,14 @@ public class PhantasmaMeteorFeature extends Feature<DefaultFeatureConfig> {
                         world.setBlockState(potentialPos, Blocks.AIR.getDefaultState());
 
                         // Lava under the y-level.
-                        if (potentialPos.getY() <= pos.getY()) {
+                        if(potentialPos.getY() <= pos.getY()) {
                             world.setBlockState(potentialPos, Blocks.LAVA.getDefaultState());
                         }
 
                         // Phantasma Geysers
                         if(distance <= 15 + sample && distance >= 5) {
-                            if (potentialPos.getY() == pos.getY() - 5) {
-                                if (world.getRandom().nextDouble() <= 0.1) {
+                            if(potentialPos.getY() == pos.getY() - 5) {
+                                if(world.getRandom().nextDouble() <= 0.1) {
                                     world.setBlockState(potentialPos, PMBlocks.PHANTASMITE_GEYSER.getDefaultState());
                                 }
                             }
@@ -70,7 +70,7 @@ public class PhantasmaMeteorFeature extends Feature<DefaultFeatureConfig> {
                     }
 
                     // at the bottom y position, some blocks are phantasma geysers
-                } else if (distance <= 25 + sample) {
+                } else if(distance <= 25 + sample) {
                     if(!world.getBlockState(potentialPos).isAir()) {
                         if(world.random.nextDouble() <= 0.5) {
                             world.setBlockState(potentialPos, Blocks.DEEPSLATE.getDefaultState());

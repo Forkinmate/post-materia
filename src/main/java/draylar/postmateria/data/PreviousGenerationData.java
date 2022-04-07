@@ -1,6 +1,6 @@
 package draylar.postmateria.data;
 
-import draylar.postmateria.api.data.WorldData;
+import draylar.worlddata.api.WorldData;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;

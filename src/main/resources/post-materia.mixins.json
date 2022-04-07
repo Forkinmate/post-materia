@@ -5,19 +5,17 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "DamageTrackerAccessor",
-    "EntityDispatcherFlameMixin",
     "EntitySoulBlazeMixin",
     "HealMixin",
     "PlayerEntityDamageMixin",
-    "ServerPersistentStateMixin",
     "ServerWorldAccessor",
     "StatusEffectAccessor",
     "WitherDeathMixin",
-    "WorldChunkMixin",
     "soulblaze.EnchantmentHelperMxin",
     "soulblaze.LivingEntityMixin"
   ],
   "client": [
+    "EntityDispatcherFlameMixin"
   ],
   "injectors": {
     "defaultRequire": 1

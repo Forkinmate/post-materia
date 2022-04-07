@@ -2,25 +2,22 @@ package draylar.postmateria;
 
 import dev.hephaestus.fiblib.api.BlockFib;
 import dev.hephaestus.fiblib.api.BlockFibRegistry;
-import draylar.postmateria.api.data.WorldData;
-import draylar.postmateria.api.data.WorldDataKey;
-import draylar.postmateria.api.data.WorldDataRegistry;
 import draylar.postmateria.command.GenerateCommand;
 import draylar.postmateria.command.WorldDataTestCommand;
 import draylar.postmateria.data.PreviousGenerationData;
 import draylar.postmateria.data.WorldWitherData;
-import draylar.postmateria.impl.WorldDataAccessor;
 import draylar.postmateria.registry.PMBlocks;
 import draylar.postmateria.registry.PMEntities;
 import draylar.postmateria.registry.PMItems;
 import draylar.postmateria.registry.PMWorld;
+import draylar.worlddata.api.WorldData;
+import draylar.worlddata.api.WorldDataKey;
+import draylar.worlddata.api.WorldDataRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
 import java.util.HashMap;
@@ -47,7 +44,7 @@ public class PostMateria implements ModInitializer {
 
         // Setup Fibs for Soulblaze Ore
         BlockFib fib = BlockFib.builder(PMBlocks.SOULBLAZE_ORE, Blocks.SOUL_SAND)
-                .withCondition(player -> player.getServer() != null && !getGlobalData(player.getServer(), WITHER_SLAIN_DATA).isWitherSlain())
+                .withCondition(player -> player.getServer() != null && !WorldData.getGlobalData(player.server, WITHER_SLAIN_DATA).isWitherSlain())
                 .build();
 
         BlockFibRegistry.register(fib);
@@ -80,13 +77,5 @@ public class PostMateria implements ModInitializer {
 
     public static Identifier id(String name) {
         return new Identifier("postmateria", name);
-    }
-
-    public static <T extends WorldData> T getGlobalData(MinecraftServer server, WorldDataKey<T> key) {
-        return ((WorldDataAccessor) server.getWorld(World.OVERWORLD)).postMateria_getWorldDataState().get(key);
-    }
-
-    public static <T extends WorldData> T getData(ServerWorld world, WorldDataKey<T> key) {
-        return ((WorldDataAccessor) world).postMateria_getWorldDataState().get(key);
     }
 }

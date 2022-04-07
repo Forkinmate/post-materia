@@ -77,12 +77,12 @@ public class EntityDispatcherFlameMixin {
 
     @Unique
     private static void drawSoulFlameTexture(MatrixStack.Entry entry, VertexConsumer vertices, float x, float y, float z, float u, float v) {
-        vertices.vertex(entry.getModel(), x, y, z)
+        vertices.vertex(entry.getPositionMatrix(), x, y, z)
                 .color(255, 255, 255, 255) // Easy way to get a soul flame texture!
                 .texture(u, v)
                 .overlay(0, 10)
                 .light(LightmapTextureManager.MAX_BLOCK_LIGHT_COORDINATE)
-                .normal(entry.getNormal(), 0.0F, 1.0F, 0.0F)
+                .normal(entry.getNormalMatrix(), 0.0F, 1.0F, 0.0F)
                 .next();
     }
 }

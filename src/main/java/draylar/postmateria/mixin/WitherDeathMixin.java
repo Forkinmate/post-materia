@@ -2,6 +2,7 @@ package draylar.postmateria.mixin;
 
 import draylar.postmateria.PostMateria;
 import draylar.postmateria.data.WorldWitherData;
+import draylar.worlddata.api.WorldData;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -38,7 +39,7 @@ public abstract class WitherDeathMixin extends Entity {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/damage/DamageTracker;update()V"))
     private void updateWitherDeathState(DamageSource source, CallbackInfo ci) {
         if (!world.isClient && getServer() != null) {
-            WorldWitherData status = PostMateria.getGlobalData(getServer(), PostMateria.WITHER_SLAIN_DATA);
+            WorldWitherData status = WorldData.getGlobalData(getServer(), PostMateria.WITHER_SLAIN_DATA);
 
             // If this is the first time the Wither has been slain...
             if (!status.isWitherSlain()) {

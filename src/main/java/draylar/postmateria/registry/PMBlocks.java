@@ -4,8 +4,6 @@ import draylar.postmateria.PostMateria;
 import draylar.postmateria.block.PhantasmaGeyserBlock;
 import draylar.postmateria.block.PhantasmaSpawnerBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.OreBlock;
@@ -24,7 +22,6 @@ public class PMBlocks {
                     FabricBlockSettings.of(Material.STONE)
                             .requiresTool()
                             .strength(3, 3)
-                            .breakByTool(FabricToolTags.PICKAXES, MiningLevels.NETHERITE)
                             .sounds(BlockSoundGroup.DEEPSLATE)),
             new Item.Settings().rarity(Rarity.EPIC).group(ItemGroup.MATERIALS));
 
@@ -55,7 +52,6 @@ public class PMBlocks {
                             .velocityMultiplier(0.4f)
                             .requiresTool()
                             .strength(2, 2)
-                            .breakByTool(FabricToolTags.SHOVELS, MiningLevels.NETHERITE)
                             .sounds(BlockSoundGroup.SOUL_SAND)),
             new Item.Settings().rarity(Rarity.RARE).group(ItemGroup.MATERIALS));
 
