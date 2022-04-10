@@ -16,7 +16,7 @@ public class GenerateCommand {
             LiteralCommandNode<ServerCommandSource> generate = CommandManager.literal("generate")
                     .then(CommandManager.literal("meteor")
                             .executes(context -> {
-                                PhantasmaMeteorFeature.generate(context.getSource().getWorld(), raycast(context));
+//                                PhantasmaMeteorFeature.generate(context.getSource().getWorld(), raycast(context));
                                 return 1;
                             })).build();
 

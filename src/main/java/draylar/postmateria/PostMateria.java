@@ -48,31 +48,6 @@ public class PostMateria implements ModInitializer {
                 .build();
 
         BlockFibRegistry.register(fib);
-
-//        // Do not call the inside callback while the server is starting up (it freezes)!
-//        // TODO: I think we can/should remove this
-//        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-//
-//            // When a chunk is loaded, attempt to regenerate features.
-//            ServerChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
-//
-//                // If the wither has been slain, ensure Soulblaze Ore has generated.
-//                if (getGlobalData(world.getServer(), WITHER_SLAIN_DATA).isWitherSlain()) {
-//                    if (!getData(world, PREVIOUS_GENERATION_DATA).hasSoulblaze(chunk)) {
-//                        queuedSoulblazeRetrogen.put(world, chunk);
-//                    }
-//                }
-//            });
-//        });
-//
-//        // Handle queue to avoid freezing the server thread with World#getChunk
-//        ServerTickEvents.START_SERVER_TICK.register(server -> {
-//            queuedSoulblazeRetrogen.forEach((world, chunk) -> {
-//                PMWorld.SOUL_SAND_SOULBLAZE_ORE.generate(world, world.getChunkManager().getChunkGenerator(), world.random, chunk.getPos().getBlockPos(0, 0, 0));
-//            });
-//
-//            queuedSoulblazeRetrogen.clear();
-//        });
     }
 
     public static Identifier id(String name) {
