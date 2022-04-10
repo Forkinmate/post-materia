@@ -9,7 +9,6 @@
     "HealMixin",
     "PlayerEntityDamageMixin",
     "ServerWorldAccessor",
-    "StatusEffectAccessor",
     "StructureFeatureAccessor",
     "WitherDeathMixin",
     "soulblaze.EnchantmentHelperMxin",

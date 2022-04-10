@@ -40,12 +40,12 @@ public class PMWorld {
             new OreFeatureConfig(
                     new BlockMatchRuleTest(Blocks.SOUL_SAND),
                     PMBlocks.SOULBLAZE_ORE.getDefaultState(),
-                    20));
+                    3));
 
     public static final RegistryEntry<PlacedFeature> SOUL_SAND_SOULBLAZE_ORE_PLACED = PlacedFeatures.register(
             PostMateria.id("soul_sand_soulblaze_ore").toString(),
             SOUL_SAND_SOULBLAZE_ORE,
-            List.of(CountPlacementModifier.of(10), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of()));
+            List.of(CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of()));
 
     public static void initialize() {
         BiomeModifications.addFeature(
