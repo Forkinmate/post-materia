@@ -31,7 +31,7 @@ public class PMWorld {
     public static final StructureFeature<DefaultFeatureConfig> PHANTASMA_METEOR_SF = register("phantasma_meteor", new PhantasmaMeteorFeature(DefaultFeatureConfig.CODEC), GenerationStep.Feature.TOP_LAYER_MODIFICATION);
     public static final RegistryEntry<ConfiguredStructureFeature<?, ?>> PHANTASMA_METEOR_CSF = register(keyOf("phantasma_meteor"), PHANTASMA_METEOR_SF.configure(new DefaultFeatureConfig(), BiomeTags.DESERT_PYRAMID_HAS_STRUCTURE));
     public static final StructurePieceType PHANTASMA_METEOR_PIECE = registerPiece("phantasma_meteor", PhantasmaMeteorFeature.Generator::new);
-    public static final RegistryEntry<StructureSet> METEORS = StructureSets.register(structureSetKey("meteors"), PHANTASMA_METEOR_CSF, new RandomSpreadStructurePlacement(10, 5, SpreadType.TRIANGULAR, 57159829));
+    public static final RegistryEntry<StructureSet> METEORS = StructureSets.register(structureSetKey("meteors"), PHANTASMA_METEOR_CSF, new RandomSpreadStructurePlacement(100, 75, SpreadType.TRIANGULAR, 57159829));
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> SOUL_SAND_SOULBLAZE_ORE = ConfiguredFeatures.register(
             PostMateria.id("soul_sand_soulblaze_ore").toString(),
