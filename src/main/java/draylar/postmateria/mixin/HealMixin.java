@@ -13,7 +13,7 @@ public class HealMixin {
 
     @ModifyVariable(
             method = "heal",
-            at = @At(value = "HEAD"), index = 1)
+            at = @At(value = "HEAD"), index = 1, argsOnly = true)
     private float adjustHealAmount(float input) {
         if ((LivingEntity) (Object) this instanceof PlayerEntity player) {
             float multiplier = 1.0f;

@@ -28,9 +28,8 @@ import java.util.List;
 
 public class PMWorld {
 
-    public static final RegistryKey<ConfiguredStructureFeature<?, ?>> PHANTASMA_METEOR = keyOf("phantasma_meteor");
     public static final StructureFeature<DefaultFeatureConfig> PHANTASMA_METEOR_SF = register("phantasma_meteor", new PhantasmaMeteorFeature(DefaultFeatureConfig.CODEC), GenerationStep.Feature.TOP_LAYER_MODIFICATION);
-    public static final RegistryEntry<ConfiguredStructureFeature<?, ?>> PHANTASMA_METEOR_CSF = register(PHANTASMA_METEOR, PHANTASMA_METEOR_SF.configure(new DefaultFeatureConfig(), BiomeTags.DESERT_PYRAMID_HAS_STRUCTURE));
+    public static final RegistryEntry<ConfiguredStructureFeature<?, ?>> PHANTASMA_METEOR_CSF = register(keyOf("phantasma_meteor"), PHANTASMA_METEOR_SF.configure(new DefaultFeatureConfig(), BiomeTags.DESERT_PYRAMID_HAS_STRUCTURE));
     public static final StructurePieceType PHANTASMA_METEOR_PIECE = registerPiece("phantasma_meteor", PhantasmaMeteorFeature.Generator::new);
     public static final RegistryEntry<StructureSet> METEORS = StructureSets.register(structureSetKey("meteors"), PHANTASMA_METEOR_CSF, new RandomSpreadStructurePlacement(10, 5, SpreadType.TRIANGULAR, 57159829));
 
@@ -45,14 +44,9 @@ public class PMWorld {
     public static final RegistryEntry<PlacedFeature> SOUL_SAND_SOULBLAZE_ORE_PLACED = PlacedFeatures.register(
             PostMateria.id("soul_sand_soulblaze_ore").toString(),
             SOUL_SAND_SOULBLAZE_ORE,
-            List.of(CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of()));
+            List.of(CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of()));
 
     public static void initialize() {
-        BiomeModifications.addFeature(
-                BiomeSelectors.includeByKey(BiomeKeys.SOUL_SAND_VALLEY),
-                GenerationStep.Feature.UNDERGROUND_ORES,
-                SOUL_SAND_SOULBLAZE_ORE_PLACED.getKey().get());
-
         BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(BiomeKeys.SOUL_SAND_VALLEY),
                 GenerationStep.Feature.UNDERGROUND_ORES,

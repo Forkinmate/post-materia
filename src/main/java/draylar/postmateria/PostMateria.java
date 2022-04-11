@@ -4,7 +4,6 @@ import dev.hephaestus.fiblib.api.BlockFib;
 import dev.hephaestus.fiblib.api.BlockFibRegistry;
 import draylar.postmateria.command.GenerateCommand;
 import draylar.postmateria.command.WorldDataTestCommand;
-import draylar.postmateria.data.PreviousGenerationData;
 import draylar.postmateria.data.WorldWitherData;
 import draylar.postmateria.registry.PMBlocks;
 import draylar.postmateria.registry.PMEntities;
@@ -16,18 +15,11 @@ import draylar.worlddata.api.WorldDataRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.chunk.Chunk;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class PostMateria implements ModInitializer {
 
     public static final WorldDataKey<WorldWitherData> WITHER_SLAIN_DATA = WorldDataRegistry.registerGlobal(id("wither_slain"), WorldWitherData::new);
-    public static final WorldDataKey<PreviousGenerationData> PREVIOUS_GENERATION_DATA = WorldDataRegistry.register(id("previous_generation"), PreviousGenerationData::new);
-    public Map<ServerWorld, Chunk> queuedSoulblazeRetrogen = new HashMap<>();
 
     @Override
     public void onInitialize() {
